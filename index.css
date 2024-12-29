@@ -12,6 +12,12 @@
     font-style: normal;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 solid transparent;
+}
+
 :root {
     --font-title: 'PlayfairDisplay', Arial, sans-serif;
     --font-body: 'Jaldi', Arial, sans-serif;
@@ -51,11 +57,7 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--gap-xxl);
+    display: block;
 
     color: var(--color-typography);
     background-color: var(--color-bg);
@@ -99,10 +101,60 @@ p {
     margin: 0;
 }
 
-.icon {
-    width: 2em;
-    height: 2em;
-    fill: var(--color-typography);
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradient {
+    background: linear-gradient(var(--color-accent2) 25%, 75%, #00000000);
+    border-radius: var(--border-radius);
+}
+
+.main-layout {
+    gap: var(--gap-xxl);
+}
+
+.site-header {
+    width: 100%;
+    height: 32em;
+}
+
+.skill-sectors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 720px;
+    width: 100%;
+}
+
+.skill-sectors > * {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.skill-sectors > *:nth-child(1) {
+    top: 0;
+    left: 48%;
+}
+
+.skill-sectors > *:nth-child(2) {
+    top: 32%;
+    left: 24%;
+}
+
+.skill-sectors > *:nth-child(3) {
+    top: 28%;
+    left: 75%;
+}
+
+.skill-sectors > *:nth-child(4) {
+    bottom: 0;
+    left: 52%;
 }
 
 .skill-sector {
