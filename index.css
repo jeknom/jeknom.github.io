@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Jaldi';
+    src: url('/fonts/Jaldi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --font-title: 'PlayfairDisplay', Arial, sans-serif;
+    --font-body: 'Jaldi', Arial, sans-serif;
+    --font-weight: 400;
+    --font-size: 1.5rem;
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 2.25rem;
+    --font-size-h4: 2rem;
+    --font-size-h5: 1.75rem;
+    --font-size-h6: 1.5rem;
+    
+    --border-radius: 6px;
+    --border-weight: 0.038em;
+    
+    --color-bg: #161616;
+    --color-bg-hi: #1F1F1F;
+    --color-bg-lo: #0D0D0D;
+
+    --color-accent: #C4FF00;
+    --color-accent-hi: #D8FF58;
+    --color-accent-lo: #B0E700;
+
+    --color-accent2: #030C21;
+
+    --color-typography: #D0D0D0;
+
+    --color-border: #3D3D3D;
+    --color-border-hi: #474747;
+    --color-border-lo: #272727;
+
+    --gap-sm: 0.25em;
+    --gap-md: 0.375em;
+    --gap-lg: 0.75em;
+    --gap-xl: 1.5em;
+    --gap-xxl: 2.25em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xxl);
+
+    color: var(--color-typography);
+    background-color: var(--color-bg);
+
+    font-family: var(--font-body);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    font-weight: var(--font-weight);
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+}
+
+h5 {
+    font-size: var(--font-size-h5);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
+}
+
+p {
+    margin: 0;
+}
+
+.icon {
+    width: 2em;
+    height: 2em;
+    fill: var(--color-typography);
+}
+
+.skill-sector {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    gap: var(--gap-sm);
+    border-left: var(--border-weight) solid var(--color-border);
+    padding: var(--gap-md);
+}
+
+.skill-sector-title {
+    display: flex;
+    gap: var(--gap-md);
+}
