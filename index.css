@@ -123,12 +123,15 @@ p {
 }
 
 .skill-sectors {
+    position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    position: relative;
     height: 720px;
     width: 100%;
+    max-width: 1700px;
+    gap: var(--gap-xxl);
 }
 
 .skill-sectors > * {
@@ -169,4 +172,20 @@ p {
 .skill-sector-title {
     display: flex;
     gap: var(--gap-md);
+}
+
+@media (width <= 1200px) {
+    .skill-sectors {
+        height: auto;
+    }
+
+    .skill-sectors > * {
+        position: static;
+        left: auto;
+        transform: none;
+    }
+
+    .skill-sector {
+        width: 90%;
+    }
 }
