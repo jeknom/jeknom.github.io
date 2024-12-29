@@ -29,6 +29,7 @@
     --font-size-h4: 2rem;
     --font-size-h5: 1.75rem;
     --font-size-h6: 1.5rem;
+    --font-size-caption: 1rem;
     
     --border-radius: 6px;
     --border-weight: 0.038em;
@@ -101,6 +102,10 @@ p {
     margin: 0;
 }
 
+.caption {
+    font-size: var(--font-size-caption);
+}
+
 .stack {
     display: flex;
     flex-direction: column;
@@ -108,26 +113,85 @@ p {
     align-items: center;
 }
 
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.priority {
+    z-index: 10;
+}
+
 .gradient {
     background: linear-gradient(var(--color-accent2) 25%, 75%, #00000000);
     border-radius: var(--border-radius);
 }
 
-.main-layout {
+.root-container {
     gap: var(--gap-xxl);
 }
 
 .site-header {
+    position: relative;
     width: 100%;
     height: 32em;
 }
 
+.site-header-shapes {
+    position: absolute;
+    width: 100%;
+    max-width: 1000px;
+    top: 50%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+}
+
+.site-header-shapes > * {
+    position: absolute;
+}
+
+.site-header-shapes > * > *:nth-child(1) {
+    opacity: 0;
+}
+
+.site-header-shapes > *:nth-child(1) {
+    top: 0%;
+    left: -20%;
+}
+
+.site-header-shapes > *:nth-child(1) > *:nth-child(1) {
+    position: absolute;
+    animation: appear 1s forwards;
+    animation-delay: 0s;
+}
+
+.site-header-shapes > *:nth-child(2) {
+    top: 10%;
+    right: 20%;
+}
+
+.site-header-shapes > *:nth-child(2) > *:nth-child(1) {
+    position: absolute;
+    animation: float 2s infinite alternate, appear 1s forwards;
+    animation-delay: 0.2s;
+}
+
+.site-header-shapes > *:nth-child(3) {
+    bottom: 0;
+    right: 26%;
+}
+
+.site-header-shapes > *:nth-child(3) > *:nth-child(1) {
+    position: absolute;
+    animation: float 2s infinite alternate, appear 1s forwards;
+    animation-delay: 0.3s;
+}
+
 .skill-sectors {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 720px;
     width: 100%;
     max-width: 1700px;
@@ -141,21 +205,26 @@ p {
 }
 
 .skill-sectors > *:nth-child(1) {
+    top: -15%;
+    left: 25%;
+}
+
+.skill-sectors > *:nth-child(2) {
     top: 0;
     left: 48%;
 }
 
-.skill-sectors > *:nth-child(2) {
+.skill-sectors > *:nth-child(3) {
     top: 32%;
     left: 24%;
 }
 
-.skill-sectors > *:nth-child(3) {
+.skill-sectors > *:nth-child(4) {
     top: 28%;
     left: 75%;
 }
 
-.skill-sectors > *:nth-child(4) {
+.skill-sectors > *:nth-child(5) {
     bottom: 0;
     left: 52%;
 }
@@ -174,6 +243,78 @@ p {
     gap: var(--gap-md);
 }
 
+.experiences {
+    flex-wrap: wrap;
+    width: 90%;
+    gap: var(--gap-lg);
+    height: 1000px;
+}
+
+.experiences a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the color from the parent element */
+}
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: var(--gap-xl);
+    border: var(--border-weight) solid var(--color-border);
+    border-radius: var(--border-radius);
+    width: 370px;
+    min-height: 550px;
+    padding: var(--gap-xxl) var(--gap-xl) var(--gap-md) var(--gap-xl);
+}
+
+.experience-logo {
+    position: absolute;
+    background-color: var(--color-typography);
+    top: -34px;
+    border: var(--border-weight) solid var(--color-accent);
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.experience-call-to-action {
+    position: absolute;
+    bottom: 30px;
+    transform: translateX(-50%, -50%);
+}
+
+.experience-time-indicator {
+    position: absolute;
+    top: 1%;
+    left: 2%;
+    gap: var(--gap-md);
+}
+
+.animate-hover {
+    animation: hover-reverse 0.5s forwards;
+}
+
+.animate-hover:hover {
+    animation: hover 0.5s forwards;
+}
+
+@keyframes hover {
+    0%   { bottom: 0px; }
+    100% { bottom: 4px; }
+}
+
+@keyframes hover-reverse {
+    0%   { bottom: 4px; }
+    100% { bottom: 0px; }
+}
+
+@keyframes appear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @media (width <= 1200px) {
     .skill-sectors {
         height: auto;
@@ -187,5 +328,30 @@ p {
 
     .skill-sector {
         width: 90%;
+    }
+
+    .skill-sectors > *:nth-child(1) {
+        margin-bottom: 3em;
+        rotate: 45deg;
+    }
+
+    .experiences {
+        gap: var(--gap-xxl);
+    }
+
+    .site-header-shapes > *:nth-child(1) {
+        top: -70%;
+        left: 0%;
+    }
+
+    .site-header-shapes > *:nth-child(2) {
+        top: 65%;
+        right: 30%;
+    }
+
+    .site-header-shapes > *:nth-child(3) {
+        bottom: 0;
+        left: 5%;
+        right: 0;
     }
 }

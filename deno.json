@@ -6,5 +6,15 @@
   },
   "imports": {
     "vite": "npm:vite@^6.0.6"
-  }
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "strict": true
+  },
+  "unstable": [
+    "sloppy-imports"
+  ]
 }
