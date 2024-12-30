@@ -109,15 +109,28 @@ p {
 .stack {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .group {
     display: flex;
     flex-direction: row;
+}
+
+.center {
     justify-content: center;
     align-items: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-sm {
+    gap: var(--gap-sm);
 }
 
 .priority {
@@ -196,7 +209,7 @@ p {
 }
 
 .skill-sectors > *:nth-child(1) {
-    top: -15%;
+    top: -15%;  
     left: 25%;
 }
 
@@ -236,9 +249,9 @@ p {
 
 .experiences {
     flex-wrap: wrap;
-    width: 90%;
+    max-width: 90%;
     gap: var(--gap-lg);
-    height: 1000px;
+    min-height: 60vh;
 }
 
 .experiences a {
@@ -249,38 +262,20 @@ p {
 .experience {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
     gap: var(--gap-xl);
     border: var(--border-weight) solid var(--color-border);
     border-radius: var(--border-radius);
-    width: 370px;
-    min-height: 550px;
-    padding: var(--gap-xxl) var(--gap-xl) var(--gap-md) var(--gap-xl);
+    padding: var(--gap-xxl) var(--gap-xl) var(--gap-xl) var(--gap-xl);
+    max-width: 370px;
+    min-height: 830px;
+    box-sizing: border-box;
 }
 
-.experience-logo {
-    position: absolute;
-    background-color: var(--color-typography);
-    top: -34px;
-    border: var(--border-weight) solid var(--color-accent);
-    border-radius: 50%;
-    height: 48px;
-    width: 48px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.experience-call-to-action {
-    position: absolute;
-    bottom: 30px;
-    transform: translateX(-50%, -50%);
-}
-
-.experience-time-indicator {
-    position: absolute;
-    top: 1%;
-    left: 2%;
-    gap: var(--gap-md);
+.experience > *:nth-child(1) > img {
+    width: 82px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
 }
 
 .animate-hover {
@@ -297,13 +292,13 @@ p {
 }
 
 @keyframes hover {
-    0%   { bottom: 0px; }
-    100% { bottom: 4px; }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
 }
 
 @keyframes hover-reverse {
-    0%   { bottom: 4px; }
-    100% { bottom: 0px; }
+    0% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes appear {
@@ -352,5 +347,10 @@ p {
 
     .experiences {
         gap: var(--gap-xxl);
+    }
+
+    .experience {
+        min-height: auto;
+        max-width: none;
     }
 }
