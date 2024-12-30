@@ -136,58 +136,49 @@ p {
 .site-header {
     position: relative;
     width: 100%;
-    height: 32em;
+    min-height: 85vh;
 }
 
-.site-header-shapes {
+.site-header > * {
     position: absolute;
-    width: 100%;
-    max-width: 1000px;
-    top: 50%;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-}
-
-.site-header-shapes > * {
-    position: absolute;
-}
-
-.site-header-shapes > * > *:nth-child(1) {
+    text-align: center;
+    
+    /* Appear animation will set this to visible */
     opacity: 0;
 }
 
-.site-header-shapes > *:nth-child(1) {
-    top: 0%;
-    left: -20%;
-}
-
-.site-header-shapes > *:nth-child(1) > *:nth-child(1) {
-    position: absolute;
+/* This is the site title with my name on it */
+.site-header > *:nth-child(1) {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: appear 1s forwards;
     animation-delay: 0s;
 }
 
-.site-header-shapes > *:nth-child(2) {
-    top: 10%;
-    right: 20%;
+/* The rest of the children are the floating asteroids, as they are images the default appear animation class is added from JS when the images are fully loaded */
+.site-header > *:nth-child(2) {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%) translateX(-140%);
+    height: clamp(200px, 20vw, 400px);
+    width: clamp(200px, 20vw, 400px);
 }
 
-.site-header-shapes > *:nth-child(2) > *:nth-child(1) {
-    position: absolute;
-    animation: float 2s infinite alternate, appear 1s forwards;
-    animation-delay: 0.2s;
+.site-header > *:nth-child(3) {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%) translateX(200%);
+    height: clamp(100px, 12.5vw, 200px);
+    width: clamp(100px, 12.5vw, 200px);
 }
 
-.site-header-shapes > *:nth-child(3) {
-    bottom: 0;
-    right: 26%;
-}
-
-.site-header-shapes > *:nth-child(3) > *:nth-child(1) {
-    position: absolute;
-    animation: float 2s infinite alternate, appear 1s forwards;
-    animation-delay: 0.3s;
+.site-header > *:nth-child(4) {
+    bottom: 35%;
+    right: 30%;
+    transform: translateX(-50%) translateX(60%);
+    height: clamp(100px, 17.5vw, 300px);
+    width: clamp(100px, 17.5vw, 300px);
 }
 
 .skill-sectors {
@@ -300,6 +291,11 @@ p {
     animation: hover 0.5s forwards;
 }
 
+.animate-appear {
+    animation: appear 1s forwards;
+    animation-delay: 0s;
+}
+
 @keyframes hover {
     0%   { bottom: 0px; }
     100% { bottom: 4px; }
@@ -316,6 +312,25 @@ p {
 }
 
 @media (width <= 1200px) {
+    .site-header {
+        min-height: 72.5vh;
+    }
+
+    .site-header > *:nth-child(2) {
+        top: 5%;
+        transform: translateX(-50%) translateX(-50%);
+    }
+    
+    .site-header > *:nth-child(3) {
+        top: 32.5%;
+        transform: translateX(-50%) translateX(120%);
+    }
+    
+    .site-header > *:nth-child(4) {
+        bottom: 33%;
+        transform: translateX(-50%) translateX(-20%);
+    }
+
     .skill-sectors {
         height: auto;
     }
@@ -337,21 +352,5 @@ p {
 
     .experiences {
         gap: var(--gap-xxl);
-    }
-
-    .site-header-shapes > *:nth-child(1) {
-        top: -70%;
-        left: 0%;
-    }
-
-    .site-header-shapes > *:nth-child(2) {
-        top: 65%;
-        right: 30%;
-    }
-
-    .site-header-shapes > *:nth-child(3) {
-        bottom: 0;
-        left: 5%;
-        right: 0;
     }
 }
