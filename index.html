@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Critical styles and code for slow internets -->
+        <style>
+            body {
+                color: var(--color-typography, #fff);
+                background-color: var(--color-bg, #000);
+            }
+
+            .do-not-show {
+                display: none !important;
+                overflow: hidden !important;
+            }
+
+            .loading-spinner-wrapper {
+                position: fixed;
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .loading-spinner {
+                animation: loading-spin 1s linear infinite;
+            }
+
+            @keyframes loading-spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+
+        <script>
+            const LOADING_SPINNER_WRAPPER_CLASSNAME = 'loading-spinner-wrapper'
+            const DO_NOT_SHOW_CLASSNAME = 'do-not-show'
+
+            window.addEventListener('load', () => {
+                document.getElementById("root").classList.remove(DO_NOT_SHOW_CLASSNAME)
+                document.getElementById("progress").classList.replace(LOADING_SPINNER_WRAPPER_CLASSNAME, DO_NOT_SHOW_CLASSNAME)
+            });
+        </script>
+        <!-- End -->
+
         <meta charset="UTF-8" />
         <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="stylesheet" href="index.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Johannes Palvanen</title>
     </head>
-    <body>
-        <div class="root-container stack center">
-            <div class="site-header stack center gradient">
-                <div class="priority animate-appear">
+    <body class="animate-appear">
+        <div id="progress" class="loading-spinner-wrapper">
+            <svg class="loading-spinner" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+        </div>
+        <div id="root" class="do-not-show root-container stack center">
+            <div class="site-header section gradient">
+                <div class="priority">
                     <h1>Johannes Palvanen</h1>
                     <p>Full-Stack Developer</p>
                 </div>
@@ -18,7 +67,7 @@
                 <img src="/pictures/shape2.png" alt="Rock floating in space" width="166" height="166" />
                 <img src="/pictures/shape3.png" alt="Rock floating in space" width="324" height="324" />
             </div>
-            <div class="skill-sectors stack center">
+            <div class="skill-sectors section">
                 <svg width="141" height="100" viewBox="0 0 251 179" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.9268 100.823C18.4475 96.2212 17.2124 91.6559 15.0978 87.3023C14.4315 85.9305 13.7662 84.6282 13.1662 83.2782C12.7085 82.2485 11.2553 80.0692 10.2688 79.5759" stroke="#D0D0D0" stroke-width="3" stroke-linecap="round"/>
                     <path d="M2.22046 83.1172C3.30527 82.9816 4.89692 81.3449 5.83326 80.7206C7.60912 79.5367 9.61463 78.7804 11.2346 77.3225C13.4403 75.3373 16.2691 73.7455 18.639 71.8496" stroke="#D0D0D0" stroke-width="3" stroke-linecap="round"/>
@@ -81,50 +130,59 @@
                     <p>Automation, Game Development, 3D modeling... I already have many skills in my ever growing toolbox. I’m happy to learn another one.</p>
                 </div>
             </div>
-            <div class="experiences group center">
-                <a href="https://metacoregames.com/" target="_blank">
-                    <div class="experience gradient animate-hover">
-                        <div>
-                            <img src="/logos/metacore.jpg" alt="Metacore" width="200" height="200" />
-                            <h3>Metacore</h4>
-                            <h5>Full-Stack Dev</h6>
-                            <div class="group align-center gap-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
-                                <p>
-                                    <time-since>01-08-2022</time-since> (present)
-                                </p>
+            <div class="monitor-and-keyboard divider stack center">
+                <video autoplay loop>
+                    <source width="512" src="/videos/monitor.webm" type="video/webm" />
+                </video> 
+                <video autoplay loop>
+                    <source width="512" src="/videos/keyboard.webm" type="video/webm" />
+                </video>
+            </div>
+            <div class="section">
+                <h2>Experience</h2>
+                <div class="experiences group center">
+                    <a href="https://metacoregames.com/" target="_blank">
+                        <div class="experience gradient animate-hover">
+                            <div>
+                                <h3>Metacore</h4>
+                                <h5>Full-Stack Dev</h6>
+                                <div class="group align-center gap-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
+                                    <p>
+                                        <time-since>01-08-2022</time-since> (present)
+                                    </p>
+                                </div>
                             </div>
+                            <p>Metacore is an entertainment company. They are best known for the hit game, Merge Mansion. I work in a team that provides backend services and frontend web tooling for all the game teams in the company. Services include things like, game backend, leaderboards, player messaging, segmentation and many more.</p>
                         </div>
-                        <p>Metacore is an entertainment company. They are best known for the hit game, Merge Mansion. I work in a team that provides backend services and frontend web tooling for all the game teams in the company. Services include things like, game backend, leaderboards, player messaging, segmentation and many more.</p>
-                    </div>
-                </a>
-                <a href="https://www.seriously.com/" target="_blank">
-                    <div class="experience gradient animate-hover">
-                        <div>
-                            <img src="/logos/seriously.png" alt="Seriously Digital Entertainment" width="200" height="200" />
-                            <h3>Seriously</h5>
-                            <h5>Game & Web Dev</h5>
-                            <div class="group align-center gap-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
-                                <p>
-                                    <span>4y 9mo</span>
-                                </p>
+                    </a>
+                    <a href="https://www.seriously.com/" target="_blank">
+                        <div class="experience gradient animate-hover">
+                            <div>
+                                <h3>Seriously</h5>
+                                <h5>Game & Web Dev</h5>
+                                <div class="group align-center gap-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
+                                    <p>
+                                        <span>4y 9mo</span>
+                                    </p>
+                                </div>
                             </div>
+                            <p>Seriously Digital Entertainment was a mobile games studio. They were best known for the game Best Fiends. The company was acquired by Playtika. Back in the company, I used to work on various game features. I was also responsible for building the majority of their web tooling.</p>
                         </div>
-                        <p>Seriously Digital Entertainment was a mobile games studio. They were best known for the game Best Fiends. The company was acquired by Playtika. Back in the company, I used to work on various game features. I was also responsible for building the majority of their web tooling.</p>
+                    </a>
+                    <div class="experience gradient">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <h3>Yours here?</h4>
+                            <h5>Lets talk</h6>
+                        </div>
+                        <p>I'm happy to discuss opportunities. If you think my skillset could be useful for your company, lets talk.</p>
+                        <p>You can find my contact information at the end of this page.</p>
                     </div>
-                </a>
-                <div class="experience gradient">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <h3>Yours here?</h4>
-                        <h5>Lets talk</h6>
-                    </div>
-                    <p>I'm happy to discuss opportunities. If you think my skillset could be useful for your company, lets talk.</p>
-                    <p>You can find my contact information at the end of this page.</p>
                 </div>
             </div>
         </div>
-        <script type="module" src="/src/main.ts"></script>
+        <script defer type="module" src="/src/main.ts"></script>
     </body>
 </html>

@@ -60,8 +60,7 @@
 body {
     display: block;
 
-    color: var(--color-typography);
-    background-color: var(--color-bg);
+    /* NOTE: Background and color are set in the critical styles in the index.html*/
 
     font-family: var(--font-body);
     font-weight: var(--font-weight);
@@ -121,12 +120,25 @@ p {
     align-items: center;
 }
 
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-xl);
+    width: 100%;
+    min-height: 85vh;
+}
+
 .align-center {
     align-items: center;
 }
 
 .justify-center {
     justify-content: center;
+}
+
+.gap-xl {
+    gap: var(--gap-xl);
 }
 
 .gap-sm {
@@ -142,6 +154,24 @@ p {
     border-radius: var(--border-radius);
 }
 
+.divider {
+    width: 100%;
+    min-height: 40vh;
+    background: linear-gradient(var(--color-bg) 0%, var(--color-bg-hi) 50%, var(--color-bg) 100%);
+}
+
+.monitor-and-keyboard > * {
+    width: min(512px, 40vw);
+}
+
+.monitor-and-keyboard > *:nth-child(1) {
+    transform: translate(min(-200px, -5vw));
+}
+
+.monitor-and-keyboard > *:nth-child(2) {
+    transform: translate(min(300px, 10vw));
+}
+
 .root-container {
     gap: var(--gap-xxl);
 }
@@ -149,7 +179,6 @@ p {
 .site-header {
     position: relative;
     width: 100%;
-    min-height: 85vh;
 }
 
 .site-header > * {
@@ -196,7 +225,6 @@ p {
 
 .skill-sectors {
     position: relative;
-    height: 720px;
     width: 100%;
     max-width: 1700px;
     gap: var(--gap-xxl);
@@ -214,22 +242,22 @@ p {
 }
 
 .skill-sectors > *:nth-child(2) {
-    top: 0;
+    top: 5%;
     left: 48%;
 }
 
 .skill-sectors > *:nth-child(3) {
-    top: 32%;
+    top: 37%;
     left: 24%;
 }
 
 .skill-sectors > *:nth-child(4) {
-    top: 28%;
+    top: 33%;
     left: 75%;
 }
 
 .skill-sectors > *:nth-child(5) {
-    bottom: 0;
+    bottom: 5%;
     left: 52%;
 }
 
@@ -251,7 +279,6 @@ p {
     flex-wrap: wrap;
     max-width: 90%;
     gap: var(--gap-lg);
-    min-height: 60vh;
 }
 
 .experiences a {
@@ -267,15 +294,8 @@ p {
     border-radius: var(--border-radius);
     padding: var(--gap-xxl) var(--gap-xl) var(--gap-xl) var(--gap-xl);
     max-width: 370px;
-    min-height: 830px;
+    min-height: 730px;
     box-sizing: border-box;
-}
-
-.experience > *:nth-child(1) > img {
-    width: 82px;
-    height: 82px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
 }
 
 .animate-hover {
@@ -352,5 +372,13 @@ p {
     .experience {
         min-height: auto;
         max-width: none;
+    }
+
+    .monitor-and-keyboard > *:nth-child(1) {
+        transform: translate(-80px);
+    }
+    
+    .monitor-and-keyboard > *:nth-child(2) {
+        transform: translate(60px);
     }
 }
