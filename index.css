@@ -342,7 +342,7 @@ footer > *:nth-child(2) {
     border-radius: var(--border-radius);
     padding: var(--gap-xxl) var(--gap-xl) var(--gap-xl) var(--gap-xl);
     max-width: 370px;
-    min-height: 730px;
+    min-height: 630px;
     box-sizing: border-box;
     animation: gradient-disappear 1s forwards;
 }
