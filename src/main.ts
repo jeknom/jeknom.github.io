@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    const target = document.getElementById('flashlight-on');
+    const target = document.getElementById('flashlight-off');
 
     if (flashlight === null || target === null) {
         console.error('Flashlight or target not found');
@@ -71,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                flashlight.classList.add('visible');
-            } else {
                 flashlight.classList.remove('visible');
+            } else {
+                flashlight.classList.add('visible');
             }
         });
     }, options);

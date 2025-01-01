@@ -38,9 +38,9 @@
     --color-bg-hi: #1F1F1F;
     --color-bg-lo: #0D0D0D;
 
-    --color-accent: #C4FF00;
-    --color-accent-hi: #D8FF58;
-    --color-accent-lo: #B0E700;
+    --color-accent: #f27a4b;
+    --color-accent-hi: #ea7b4f;
+    --color-accent-lo: #e06f43;
 
     --color-accent2: #030C21;
 
@@ -101,13 +101,22 @@ p {
     margin: 0;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-xl);
+    width: 100%;
+    min-height: 120vh;
+}
+
 section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--gap-xxl);
     width: 100%;
-    min-height: 85vh;
+    min-height: 95vh;
 }
 
 footer {
@@ -116,7 +125,8 @@ footer {
     align-items: center;
     gap: var(--gap-xl);
     width: 100%;
-    min-height: 30vh;
+    min-height: 50vh;
+    text-align: center;
 }
 
 footer > *:nth-child(2) {
@@ -167,18 +177,13 @@ footer > *:nth-child(2) {
 }
 
 .gradient {
-    background: linear-gradient(var(--color-accent2) 25%, 75%, #00000000);
-    border-radius: var(--border-radius);
-}
-
-.gradient-reverse {
-    background: linear-gradient(#00000000 25%, var(--color-accent2) 75%);
+    background: linear-gradient(var(--color-accent2) 30%, 90%, #00000000);
     border-radius: var(--border-radius);
 }
 
 #flashlight {
     position: fixed;
-    top: 20%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -195,8 +200,8 @@ footer > *:nth-child(2) {
 
 #flashlight.visible {
     display: block;
-    animation: flicker 1s ease-in-out;
-    opacity: .1;
+    animation: flashlight 1s ease-in-out;
+    opacity: .115;
 }
 
 .divider {
@@ -228,6 +233,7 @@ footer > *:nth-child(2) {
 .site-header > * {
     position: absolute;
     text-align: center;
+    transform: translate(-50%, -50%);
     
     /* Appear animation will set this to visible */
     opacity: 0;
@@ -235,36 +241,39 @@ footer > *:nth-child(2) {
 
 /* This is the site title with my name on it */
 .site-header > *:nth-child(1) {
-    top: 30%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    
     animation: appear 1s forwards;
     animation-delay: 0s;
 }
 
-/* The rest of the children are the floating asteroids, as they are images the default appear animation class is added from JS when the images are fully loaded */
 .site-header > *:nth-child(2) {
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%) translateX(-140%);
+    top: 22.5%;
+    left: 25%;
     height: clamp(200px, 20vw, 400px);
     width: clamp(200px, 20vw, 400px);
 }
 
 .site-header > *:nth-child(3) {
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%) translateX(200%);
+    top: 30%;
+    left: 77%;
     height: clamp(100px, 12.5vw, 200px);
     width: clamp(100px, 12.5vw, 200px);
 }
 
 .site-header > *:nth-child(4) {
-    bottom: 35%;
-    right: 30%;
-    transform: translateX(-50%) translateX(60%);
+    bottom: 17%;
+    right: 45%;
     height: clamp(100px, 17.5vw, 300px);
     width: clamp(100px, 17.5vw, 300px);
+}
+
+.site-header > *:nth-child(5) {
+    left: 45%;
+    bottom: 15%;
+    transform: translate(-50%, -50%);
+    rotate: 45deg;
 }
 
 .skill-sectors {
@@ -281,26 +290,21 @@ footer > *:nth-child(2) {
 }
 
 .skill-sectors > *:nth-child(1) {
-    top: 0;  
-    left: 25%;
-}
-
-.skill-sectors > *:nth-child(2) {
     top: 5%;
     left: 50%;
 }
 
-.skill-sectors > *:nth-child(3) {
+.skill-sectors > *:nth-child(2) {
     top: 40%;
     left: 75%;
 }
 
-.skill-sectors > *:nth-child(4) {
+.skill-sectors > *:nth-child(3) {
     top: 40%;
     left: 25%;
 }
 
-.skill-sectors > *:nth-child(5) {
+.skill-sectors > *:nth-child(4) {
     bottom: 5%;
     left: 52%;
 }
@@ -343,9 +347,17 @@ footer > *:nth-child(2) {
     border-radius: var(--border-radius);
     padding: var(--gap-xxl) var(--gap-xl) var(--gap-xl) var(--gap-xl);
     max-width: 370px;
-    min-height: 630px;
+    min-height: 640px;
     box-sizing: border-box;
     animation: gradient-disappear 1s forwards;
+}
+
+.experience-job-title {
+    color: var(--color-accent-lo)
+}
+
+.experience-call-to-action {
+    color: var(--color-accent-hi);
 }
 
 .animate-hover {
@@ -355,7 +367,7 @@ footer > *:nth-child(2) {
 
 .animate-hover:hover {
     animation: hover 0.5s forwards, gradient-appear 1s forwards;
-    background-color: var(--color-accent2);
+    background-color: var(--color-bg-hi);
 }
 
 .animate-appear {
@@ -378,47 +390,34 @@ footer > *:nth-child(2) {
     100% { opacity: 1; }
 }
 
-@keyframes flicker {
+@keyframes flashlight {
     0% { opacity: 0; }
-    10% { opacity: .2; }
-    20% { opacity: 0; }
-    30% { opacity: .1; }
-    40% { opacity: 0; }
-    50% { opacity: .1; }
-    60% { opacity: 0; }
-    70% { opacity: .1; }
-    80% { opacity: 0; }
-    90% { opacity: .1; }
-    100% { opacity: .1; }
+    100% { opacity: .115; }
 }
 
 @media (width <= 1200px) {
     footer {
         justify-content: center;
-        min-height: 60vh;
-    }
-
-    .site-header {
-        min-height: 72.5vh;
-    }
-
-    .site-header > *:nth-child(1) {
-        top: 50%;
+            
     }
 
     .site-header > *:nth-child(2) {
-        top: 10%;
-        transform: translateX(-50%) translateX(-50%);
+        top: 25%;
+        left: 30%;
     }
     
     .site-header > *:nth-child(3) {
-        top: 32.5%;
-        transform: translateX(-50%) translateX(130%);
+        top: 40%;
+        left: 82.5%;
     }
     
     .site-header > *:nth-child(4) {
-        bottom: 10%;
-        transform: translateX(-50%) translateX(-20%);
+        left: 25%;
+        bottom: 30%;
+    }
+
+    .site-header > *:nth-child(5) {
+        width: 120px;
     }
 
     .skill-sectors {
@@ -433,11 +432,6 @@ footer > *:nth-child(2) {
 
     .skill-sector {
         width: 90%;
-    }
-
-    .skill-sectors > *:nth-child(1) {
-        margin-bottom: 3em;
-        rotate: 45deg;
     }
 
     .experiences {
