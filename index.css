@@ -116,16 +116,17 @@ section {
     align-items: center;
     gap: var(--gap-xxl);
     width: 100%;
-    min-height: 95vh;
+    min-height: 60vh;
 }
 
 footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: var(--gap-xl);
     width: 100%;
-    min-height: 50vh;
+    min-height: 90vh;
     text-align: center;
 }
 
