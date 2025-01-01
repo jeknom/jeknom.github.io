@@ -105,7 +105,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-xl);
+    gap: var(--gap-xxl);
     width: 100%;
     min-height: 85vh;
 }
@@ -117,6 +117,10 @@ footer {
     gap: var(--gap-xl);
     width: 100%;
     min-height: 30vh;
+}
+
+footer > *:nth-child(2) {
+    width: 90%;
 }
 
 .caption {
@@ -388,6 +392,11 @@ footer {
 }
 
 @media (width <= 1200px) {
+    footer {
+        justify-content: center;
+        min-height: 60vh;
+    }
+
     .site-header {
         min-height: 72.5vh;
     }
