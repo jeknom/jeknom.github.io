@@ -1,4 +1,45 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
+    let lightCanMove = false;
+    setTimeout(() => lightCanMove = true, 3000);
+
+    const flashlight = document.getElementById('flashlight');
+    let mouseX = window.innerWidth / 2; // Default to center of the screen
+    let mouseY = window.innerHeight / 2; // Default to center of the screen
+    let currentX = mouseX;
+    let currentY = mouseY;
+
+    function positionFlashlightOnMouseMove(e?: MouseEvent) {
+        if (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }
+    }
+
+    function updateFlashlightPosition() {
+        if (flashlight === null) {
+            return;
+        }
+
+        
+        if (lightCanMove) {
+            const speed = 0.1;
+            
+            currentX += (mouseX - currentX) * speed;
+            currentY += (mouseY - currentY) * speed;
+    
+            flashlight.style.left = `${currentX}px`;
+            flashlight.style.top = `${currentY}px`;
+        }
+
+        requestAnimationFrame(updateFlashlightPosition);
+    }
+
+    updateFlashlightPosition();
+
+    document.addEventListener('mousemove', positionFlashlightOnMouseMove);
+
     const imgElements = document.querySelectorAll("img");
 
     imgElements.forEach((imgEl) => {
@@ -13,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const flashlight = document.getElementById('flashlight');
+
     const target = document.getElementById('flashlight-on');
 
     if (flashlight === null || target === null) {
@@ -24,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.7
+        threshold: 0.1
     };
 
     const observer = new IntersectionObserver(function(entries) {
@@ -38,15 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, options);
 
     observer.observe(target);
-});
-
-document.addEventListener('mousemove', function(e) {
-    const flashlight = document.getElementById('flashlight');
-    if (flashlight === null) {
-        return
-    }
-    flashlight.style.left = `${e.clientX}px`;
-    flashlight.style.top = `${e.clientY}px`;
 });
 
 class TimeSince extends HTMLElement {

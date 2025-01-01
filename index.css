@@ -178,7 +178,9 @@ footer > *:nth-child(2) {
 
 #flashlight {
     position: fixed;
-    top: 0;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
     width: 800px;
     height: 800px;
@@ -200,7 +202,6 @@ footer > *:nth-child(2) {
 .divider {
     width: 100%;
     min-height: 40vh;
-    background: linear-gradient(var(--color-bg) 0%, var(--color-bg-hi) 50%, var(--color-bg) 100%);
 }
 
 .monitor-and-keyboard > * {
@@ -280,23 +281,23 @@ footer > *:nth-child(2) {
 }
 
 .skill-sectors > *:nth-child(1) {
-    top: -15%;  
+    top: 0;  
     left: 25%;
 }
 
 .skill-sectors > *:nth-child(2) {
     top: 5%;
-    left: 48%;
+    left: 50%;
 }
 
 .skill-sectors > *:nth-child(3) {
-    top: 37%;
-    left: 24%;
+    top: 40%;
+    left: 75%;
 }
 
 .skill-sectors > *:nth-child(4) {
-    top: 33%;
-    left: 75%;
+    top: 40%;
+    left: 25%;
 }
 
 .skill-sectors > *:nth-child(5) {
