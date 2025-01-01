@@ -51,15 +51,16 @@
         <link rel="icon" type="image/png" href="/favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Johannes Palvanen</title>
-      <script type="module" crossorigin src="/assets/index-ChSzIB5U.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-Cf3jca78.css">
+      <script type="module" crossorigin src="/assets/index-QNSI8GVI.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-DmBsJ5Yh.css">
     </head>
     <body class="animate-appear">
         <div id="progress" class="loading-spinner-wrapper">
             <svg class="loading-spinner" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
         </div>
         <div id="root" class="do-not-show root-container stack center">
-            <div class="site-header section gradient">
+            <div id="flashlight"></div>
+            <section class="site-header gradient">
                 <div class="priority">
                     <h1>Johannes Palvanen</h1>
                     <p>Full-Stack Developer</p>
@@ -67,8 +68,8 @@
                 <img src="/pictures/shape1.png" alt="Rock floating in space" width="429" height="429" />    
                 <img src="/pictures/shape2.png" alt="Rock floating in space" width="166" height="166" />
                 <img src="/pictures/shape3.png" alt="Rock floating in space" width="324" height="324" />
-            </div>
-            <div class="skill-sectors section">
+            </section>
+            <section id="flashlight-on" class="skill-sectors">
                 <svg width="141" height="100" viewBox="0 0 251 179" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.9268 100.823C18.4475 96.2212 17.2124 91.6559 15.0978 87.3023C14.4315 85.9305 13.7662 84.6282 13.1662 83.2782C12.7085 82.2485 11.2553 80.0692 10.2688 79.5759" stroke="#D0D0D0" stroke-width="3" stroke-linecap="round"/>
                     <path d="M2.22046 83.1172C3.30527 82.9816 4.89692 81.3449 5.83326 80.7206C7.60912 79.5367 9.61463 78.7804 11.2346 77.3225C13.4403 75.3373 16.2691 73.7455 18.639 71.8496" stroke="#D0D0D0" stroke-width="3" stroke-linecap="round"/>
@@ -130,7 +131,7 @@
                     </div>
                     <p>Automation, Game Development, 3D modeling... I already have many skills in my ever growing toolbox. I’m happy to learn another one.</p>
                 </div>
-            </div>
+            </section>
             <div class="monitor-and-keyboard divider stack center">
                 <video autoplay loop playsinline muted disablepictureinpicture disableremoteplayback poster="/pictures/monitor-poster.png">
                     <source width="512" src="/videos/monitor.mov" type="video/mp4;codecs=hvc1" />
@@ -141,11 +142,11 @@
                     <source width="512" src="/videos/keyboard.webm" type="video/webm" />
                 </video>
             </div>
-            <div class="section">
+            <section>
                 <h2>Experience</h2>
-                <div class="experiences group center">
+                <div class="experiences no-link-styling group center">
                     <a href="https://metacoregames.com/" target="_blank">
-                        <div class="experience gradient animate-hover">
+                        <div class="experience animate-hover">
                             <div>
                                 <h3>Metacore</h4>
                                 <h5>Full-Stack Dev</h6>
@@ -160,7 +161,7 @@
                         </div>
                     </a>
                     <a href="https://www.seriously.com/" target="_blank">
-                        <div class="experience gradient animate-hover">
+                        <div class="experience animate-hover">
                             <div>
                                 <h3>Seriously</h5>
                                 <h5>Game & Web Dev</h5>
@@ -174,7 +175,7 @@
                             <p>Seriously Digital Entertainment was a mobile games studio. They were best known for the game Best Fiends. The company was acquired by Playtika. Back in the company, I used to work on various game features. I was also responsible for building the majority of their web tooling.</p>
                         </div>
                     </a>
-                    <div class="experience gradient">
+                    <div class="experience">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             <h3>Yours here?</h4>
@@ -184,7 +185,24 @@
                         <p>You can find my contact information at the end of this page.</p>
                     </div>
                 </div>
-            </div>
+            </section>
+            <footer class="gradient-reverse">
+                <h2>Get in touch</h2>
+                <div class="stack gap-xl">
+                    <p>Best way to get in touch is to send me a message in LinkedIn.</p>
+                    <div class="no-link-styling group center gap-lg">
+                        <a href="https://www.linkedin.com/in/johku/" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="mailto:palvanenj@gmail.com" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </a>
+                        <a href="https://github.com/jeknom" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
