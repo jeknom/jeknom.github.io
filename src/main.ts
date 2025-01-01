@@ -12,6 +12,41 @@ document.addEventListener("DOMContentLoaded", () => {
             imgEl.classList.add("animate-appear");
         }
     });
+
+    const flashlight = document.getElementById('flashlight');
+    const target = document.getElementById('flashlight-on');
+
+    if (flashlight === null || target === null) {
+        console.error('Flashlight or target not found');
+        return;
+    }
+
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.7
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                flashlight.classList.add('visible');
+            } else {
+                flashlight.classList.remove('visible');
+            }
+        });
+    }, options);
+
+    observer.observe(target);
+});
+
+document.addEventListener('mousemove', function(e) {
+    const flashlight = document.getElementById('flashlight');
+    if (flashlight === null) {
+        return
+    }
+    flashlight.style.left = `${e.clientX}px`;
+    flashlight.style.top = `${e.clientY}px`;
 });
 
 class TimeSince extends HTMLElement {
