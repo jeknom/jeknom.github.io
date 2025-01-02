@@ -285,7 +285,6 @@ footer > *:nth-child(2) {
     width: 100%;
     min-height: max(600px, 60vh);
     max-width: 1700px;
-    gap: var(--gap-xxl);
 }
 
 .skill-sectors > * {
@@ -426,16 +425,16 @@ footer > *:nth-child(2) {
     }
 
     .skill-sectors {
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--gap-xxl);
     }
 
     .skill-sectors > * {
         position: static;
         left: auto;
         transform: none;
-    }
-
-    .skill-sector {
         width: 90%;
     }
 
