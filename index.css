@@ -3,6 +3,7 @@
     src: url('/fonts/Jaldi.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 * {
@@ -60,7 +62,8 @@
 body {
     display: block;
 
-    /* NOTE: Background and color are set in the critical styles in the index.html*/
+    color: var(--color-typography, #fff);
+    background-color: var(--color-bg, #000);
 
     font-family: var(--font-body);
     font-weight: var(--font-weight);
