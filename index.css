@@ -107,7 +107,7 @@ header {
     align-items: center;
     gap: var(--gap-xl);
     width: 100%;
-    min-height: 120vh;
+    min-height: max(600px, 120vh);
 }
 
 section {
@@ -116,7 +116,7 @@ section {
     align-items: center;
     gap: var(--gap-xxl);
     width: 100%;
-    min-height: 60vh;
+    min-height: max(600px, 60vh);
 }
 
 footer {
@@ -126,7 +126,7 @@ footer {
     justify-content: center;
     gap: var(--gap-xl);
     width: 100%;
-    min-height: 90vh;
+    min-height: max(600px, 90vh);
     text-align: center;
 }
 
