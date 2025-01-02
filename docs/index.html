@@ -1,64 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Critical styles and code for slow internets -->
-        <style>
-            body {
-                color: var(--color-typography, #fff);
-                background-color: var(--color-bg, #000);
-            }
-
-            .do-not-show {
-                display: none !important;
-                overflow: hidden !important;
-            }
-
-            .loading-spinner-wrapper {
-                position: fixed;
-                display: flex;
-                width: 100vw;
-                height: 100vh;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .loading-spinner {
-                animation: loading-spin 1s linear infinite;
-            }
-
-            @keyframes loading-spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-        </style>
-
-        <script>
-            const LOADING_SPINNER_WRAPPER_CLASSNAME = 'loading-spinner-wrapper'
-            const DO_NOT_SHOW_CLASSNAME = 'do-not-show'
-
-            window.addEventListener('load', () => {
-                document.getElementById("root").classList.remove(DO_NOT_SHOW_CLASSNAME)
-                document.getElementById("progress").classList.replace(LOADING_SPINNER_WRAPPER_CLASSNAME, DO_NOT_SHOW_CLASSNAME)
-            });
-        </script>
-        <!-- End -->
-
         <meta charset="UTF-8" />
         <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="preload" href="/fonts/PlayfairDisplay.ttf" as="font" type="font/ttf" crossorigin />
+        <link rel="preload" href="/fonts/Jaldi.ttf" as="font" type="font/ttf" crossorigin />
+        <link rel="preload" href="/pictures/shape1.png" as="image/png" type= crossorigin />
+        <link rel="preload" href="/pictures/shape2.png" as="image/png" type= crossorigin />
+        <link rel="preload" href="/pictures/shape3.png" as="image/png" type= crossorigin />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Johannes Palvanen</title>
-      <script type="module" crossorigin src="/assets/index-Bh2OPSfg.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-CqTJzZV2.css">
+      <script type="module" crossorigin src="/assets/index-C7pIsa04.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-DWu2-mxS.css">
     </head>
     <body class="animate-appear">
-        <div id="progress" class="loading-spinner-wrapper">
-            <svg class="loading-spinner" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-        </div>
-        <div id="root" class="do-not-show root-container stack center">
+        <div id="root" class="root-container stack center">
             <div id="flashlight"></div>
             <header class="site-header gradient">
                 <div class="priority">
@@ -194,7 +150,7 @@
                             <!-- This is to align paragraphs as the others have the time indicators -->
                             <p style="height: 42px;"></p>
                         </div>
-                        <p>Looking to bring your project to life? Let’s discuss how my expertise can contribute to your success. Reach out for a conversation!</p>
+                        <p>Looking to bring your project to life? Let's discuss how my expertise can contribute to your success. Reach out for a conversation!</p>
                         <p>Contact information at the end of this page.</p>
                     </div>
                 </div>
