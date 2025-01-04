@@ -2,7 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     let lightCanMove = false;
-    setTimeout(() => lightCanMove = true, 3000);
 
     window.addEventListener('scroll', () => {
         if (!lightCanMove) {
