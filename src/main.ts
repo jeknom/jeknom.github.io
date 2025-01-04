@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let lightCanMove = false;
     setTimeout(() => lightCanMove = true, 3000);
 
+    window.addEventListener('scroll', () => {
+        if (!lightCanMove) {
+            lightCanMove = true;
+        }
+    })
+
     const flashlight = document.getElementById('flashlight');
     let mouseX = window.innerWidth / 2; // Default to center of the screen
     let mouseY = window.innerHeight / 2; // Default to center of the screen
