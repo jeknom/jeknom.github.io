@@ -12,27 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
             imgEl.classList.add("animate-appear");
         }
     });
-
-    const lights = document.getElementsByClassName('flashlight');
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.4
-    };
-    
-    for (const light of lights) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    light.classList.add('visible');
-                } else {
-                    light.classList.remove('visible');
-                }
-            });
-        }, options);
-
-        observer.observe(light);
-    }
 });
 
 class TimeSince extends HTMLElement {

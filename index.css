@@ -209,26 +209,6 @@ footer>*:nth-child(2) {
     border-radius: var(--border-radius);
 }
 
-.flashlight {
-    position: absolute;
-    left: 50%;
-    pointer-events: none;
-    width: 800px;
-    height: 800px;
-    border-radius: 50%;
-    background: radial-gradient(circle farthest-side, var(--color-typography) 10%, var(--color-bg));
-    mix-blend-mode: lighten;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.flashlight.visible {
-    animation: flashlight 2s ease-in-out;
-    opacity: .1;
-}
-
 .divider {
     width: 100%;
     min-height: 40vh;
