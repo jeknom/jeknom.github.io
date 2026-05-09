@@ -1,50 +1,4 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    let lightCanMove = false;
-
-    window.addEventListener('scroll', () => {
-        if (!lightCanMove) {
-            lightCanMove = true;
-        }
-    })
-
-    const flashlight = document.getElementById('flashlight');
-    let mouseX = window.innerWidth / 2; // Default to center of the screen
-    let mouseY = window.innerHeight / 2; // Default to center of the screen
-    let currentX = mouseX;
-    let currentY = mouseY;
-
-    function positionFlashlightOnMouseMove(e?: MouseEvent) {
-        if (e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        }
-    }
-
-    function updateFlashlightPosition() {
-        if (flashlight === null) {
-            return;
-        }
-
-        
-        if (lightCanMove) {
-            const speed = 0.1;
-            
-            currentX += (mouseX - currentX) * speed;
-            currentY += (mouseY - currentY) * speed;
-    
-            flashlight.style.left = `${currentX}px`;
-            flashlight.style.top = `${currentY}px`;
-        }
-
-        requestAnimationFrame(updateFlashlightPosition);
-    }
-
-    updateFlashlightPosition();
-
-    document.addEventListener('mousemove', positionFlashlightOnMouseMove);
-
     const imgElements = document.querySelectorAll("img");
 
     imgElements.forEach((imgEl) => {
@@ -59,31 +13,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
-    const target = document.getElementById('flashlight-off');
-
-    if (flashlight === null || target === null) {
-        console.error('Flashlight or target not found');
-        return;
-    }
-
+    const lights = document.getElementsByClassName('flashlight');
     const options = {
         root: null,
         rootMargin: '0px',
         threshold: 0.4
     };
+    
+    for (const light of lights) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    light.classList.add('visible');
+                } else {
+                    light.classList.remove('visible');
+                }
+            });
+        }, options);
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                flashlight.classList.remove('visible');
-            } else {
-                flashlight.classList.add('visible');
-            }
-        });
-    }, options);
-
-    observer.observe(target);
+        observer.observe(light);
+    }
 });
 
 class TimeSince extends HTMLElement {

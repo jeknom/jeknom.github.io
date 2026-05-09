@@ -209,11 +209,9 @@ footer>*:nth-child(2) {
     border-radius: var(--border-radius);
 }
 
-#flashlight {
-    position: fixed;
-    top: 45%;
+.flashlight {
+    position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
     width: 800px;
     height: 800px;
@@ -223,13 +221,12 @@ footer>*:nth-child(2) {
     transform: translate(-50%, -50%);
     z-index: 1000;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
-#flashlight.visible {
-    display: block;
-    animation: flashlight 1s ease-in-out;
-    opacity: .115;
+.flashlight.visible {
+    animation: flashlight 2s ease-in-out;
+    opacity: .1;
 }
 
 .divider {
@@ -378,6 +375,7 @@ footer>*:nth-child(2) {
     max-width: 370px;
     min-height: 640px;
     box-sizing: border-box;
+    background: linear-gradient(0deg, var(--color-accent), 40%, var(--color-bg), 100%);
     animation: gradient-disappear 1s forwards;
 }
 
@@ -427,16 +425,6 @@ footer>*:nth-child(2) {
 
     100% {
         opacity: 1;
-    }
-}
-
-@keyframes flashlight {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: .115;
     }
 }
 
@@ -494,10 +482,5 @@ footer>*:nth-child(2) {
 
     .monitor-and-keyboard>*:nth-child(2) {
         transform: translate(60px);
-    }
-
-    #flashlight.visible {
-        opacity: 0;
-        animation: none;
     }
 }
