@@ -1,14 +1,15 @@
+/* Satoshi font by Indian Type Foundry, licensed under the ITF Free Font License */
 @font-face {
-    font-family: 'Jaldi';
-    src: url('/fonts/Jaldi.ttf') format('truetype');
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PlayfairDisplay';
-    src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -21,8 +22,8 @@
 }
 
 :root {
-    --font-title: 'PlayfairDisplay', Arial, sans-serif;
-    --font-body: 'Jaldi', Arial, sans-serif;
+    --font-title: 'Space Grotesk', Arial, sans-serif;
+    --font-body: 'Satoshi', Arial, sans-serif;
     --font-weight: 400;
     --font-size: 1.5rem;
     --font-size-h1: 3rem;
@@ -32,17 +33,15 @@
     --font-size-h5: 1.5rem;
     --font-size-h6: 1.25rem;
     --font-size-caption: 1rem;
-    
+
     --border-radius: 6px;
     --border-weight: 0.038em;
-    
+
     --color-bg: #161616;
     --color-bg-hi: #1F1F1F;
     --color-bg-lo: #0D0D0D;
 
-    --color-accent: #f27a4b;
-    --color-accent-hi: #ea7b4f;
-    --color-accent-lo: #e06f43;
+    --color-accent: #dcbfff;
 
     --color-accent2: #030C21;
 
@@ -70,7 +69,12 @@ body {
     font-size: var(--font-size);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-title);
     font-weight: var(--font-weight);
     margin: 0;
@@ -104,6 +108,18 @@ p {
     margin: 0;
 }
 
+nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    height: 100px;
+    top: 0px;
+    right: 12px;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -133,8 +149,21 @@ footer {
     text-align: center;
 }
 
-footer > *:nth-child(2) {
+footer>*:nth-child(2) {
     width: 90%;
+}
+
+.download-resume {
+    background-color: rgba(139, 131, 131, 0.208);
+    color: var(--color-typography);
+    padding: 8px 12px 8px 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(159, 159, 159, 0.579);
+    cursor: pointer;
+}
+
+.download-resume:hover {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .caption {
@@ -213,19 +242,20 @@ footer > *:nth-child(2) {
     min-height: 40vh;
 }
 
-.monitor-and-keyboard > * {
+.monitor-and-keyboard>* {
     width: min(512px, 65vw);
 }
 
-.monitor-and-keyboard > *:nth-child(1) {
+.monitor-and-keyboard>*:nth-child(1) {
     transform: translate(min(-200px, -5vw));
 }
 
-.monitor-and-keyboard > *:nth-child(2) {
+.monitor-and-keyboard>*:nth-child(2) {
     transform: translate(min(300px, 10vw));
 }
 
 .root-container {
+    position: relative;
     gap: var(--gap-xxl);
 }
 
@@ -234,46 +264,46 @@ footer > *:nth-child(2) {
     width: 100%;
 }
 
-.site-header > * {
+.site-header>* {
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
-    
+
     /* Appear animation will set this to visible */
     opacity: 0;
 }
 
 /* This is the site title with my name on it */
-.site-header > *:nth-child(1) {
+.site-header>*:nth-child(1) {
     top: 40%;
     left: 50%;
-    
+
     animation: appear 1s forwards;
     animation-delay: 0s;
 }
 
-.site-header > *:nth-child(2) {
+.site-header>*:nth-child(2) {
     top: 22.5%;
     left: 25%;
     height: clamp(200px, 20vw, 400px);
     width: clamp(200px, 20vw, 400px);
 }
 
-.site-header > *:nth-child(3) {
+.site-header>*:nth-child(3) {
     top: 30%;
     left: 77%;
     height: clamp(100px, 12.5vw, 200px);
     width: clamp(100px, 12.5vw, 200px);
 }
 
-.site-header > *:nth-child(4) {
+.site-header>*:nth-child(4) {
     bottom: 17%;
     right: 45%;
     height: clamp(100px, 17.5vw, 300px);
     width: clamp(100px, 17.5vw, 300px);
 }
 
-.site-header > *:nth-child(5) {
+.site-header>*:nth-child(5) {
     left: 45%;
     bottom: 15%;
     transform: translate(-50%, -50%);
@@ -287,28 +317,28 @@ footer > *:nth-child(2) {
     max-width: 1700px;
 }
 
-.skill-sectors > * {
+.skill-sectors>* {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.skill-sectors > *:nth-child(1) {
+.skill-sectors>*:nth-child(1) {
     top: 5%;
     left: 50%;
 }
 
-.skill-sectors > *:nth-child(2) {
+.skill-sectors>*:nth-child(2) {
     top: 35%;
     left: 82.5%;
 }
 
-.skill-sectors > *:nth-child(3) {
+.skill-sectors>*:nth-child(3) {
     top: 35%;
     left: 18.5%;
 }
 
-.skill-sectors > *:nth-child(4) {
+.skill-sectors>*:nth-child(4) {
     bottom: 0%;
     left: 50%;
 }
@@ -338,7 +368,7 @@ footer > *:nth-child(2) {
     color: inherit;
 }
 
-.no-link-styling > * {
+.no-link-styling>* {
     text-decoration: none;
     color: inherit;
 }
@@ -357,11 +387,7 @@ footer > *:nth-child(2) {
 }
 
 .experience-job-title {
-    color: var(--color-accent-lo)
-}
-
-.experience-call-to-action {
-    color: var(--color-accent-hi);
+    color: var(--color-accent)
 }
 
 .animate-hover {
@@ -380,47 +406,67 @@ footer > *:nth-child(2) {
 }
 
 @keyframes hover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-4px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-4px);
+    }
 }
 
 @keyframes hover-reverse {
-    0% { transform: translateY(-4px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes appear {
-    0% { opacity: 0.01; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.01;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes flashlight {
-    0% { opacity: 0; }
-    100% { opacity: .115; }
-}
-
-@media (width <= 1200px) {
-    footer {
-        justify-content: center;
-            
+    0% {
+        opacity: 0;
     }
 
-    .site-header > *:nth-child(2) {
+    100% {
+        opacity: .115;
+    }
+}
+
+@media (width <=1200px) {
+    footer {
+        justify-content: center;
+
+    }
+
+    .site-header>*:nth-child(2) {
         top: 25%;
         left: 30%;
     }
-    
-    .site-header > *:nth-child(3) {
+
+    .site-header>*:nth-child(3) {
         top: 40%;
         left: 82.5%;
     }
-    
-    .site-header > *:nth-child(4) {
+
+    .site-header>*:nth-child(4) {
         left: 25%;
         bottom: 30%;
     }
 
-    .site-header > *:nth-child(5) {
+    .site-header>*:nth-child(5) {
         width: 120px;
     }
 
@@ -431,7 +477,7 @@ footer > *:nth-child(2) {
         gap: var(--gap-xxl);
     }
 
-    .skill-sectors > * {
+    .skill-sectors>* {
         position: static;
         left: auto;
         transform: none;
@@ -447,11 +493,11 @@ footer > *:nth-child(2) {
         max-width: none;
     }
 
-    .monitor-and-keyboard > *:nth-child(1) {
+    .monitor-and-keyboard>*:nth-child(1) {
         transform: translate(-60px);
     }
-    
-    .monitor-and-keyboard > *:nth-child(2) {
+
+    .monitor-and-keyboard>*:nth-child(2) {
         transform: translate(60px);
     }
 
