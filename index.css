@@ -35,21 +35,16 @@
     --font-size-caption: 1rem;
 
     --border-radius: 6px;
-    --border-weight: 0.038em;
+    --border-weight: 0.05em;
 
-    --color-bg: #161616;
-    --color-bg-hi: #1F1F1F;
-    --color-bg-lo: #0D0D0D;
+    --color-bg: #1c3e8e;
+    --color-bg-hi: #214bab;
 
-    --color-accent: #dcbfff;
-
-    --color-accent2: #030C21;
+    --color-accent: #c9963a;
 
     --color-typography: #D0D0D0;
 
-    --color-border: #3D3D3D;
-    --color-border-hi: #474747;
-    --color-border-lo: #272727;
+    --color-border: #3958a1;
 
     --gap-sm: 0.25em;
     --gap-md: 0.375em;
@@ -205,7 +200,7 @@ footer>*:nth-child(2) {
 }
 
 .gradient {
-    background: linear-gradient(var(--color-accent2) 30%, 90%, #00000000);
+    background: linear-gradient(var(--color-bg-hi) 30%, 90%, #00000000);
     border-radius: var(--border-radius);
 }
 
@@ -356,6 +351,7 @@ footer>*:nth-child(2) {
     min-height: 640px;
     box-sizing: border-box;
     animation: gradient-disappear 1s forwards;
+    background-color: var(--color-bg-hi)
 }
 
 .experience-job-title {
@@ -369,7 +365,7 @@ footer>*:nth-child(2) {
 
 .animate-hover:hover {
     animation: hover 0.5s forwards, gradient-appear 1s forwards;
-    background-color: var(--color-bg-hi);
+    background-color: black;
 }
 
 .animate-appear {
