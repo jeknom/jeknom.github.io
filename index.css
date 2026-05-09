@@ -355,7 +355,6 @@ footer>*:nth-child(2) {
     max-width: 370px;
     min-height: 640px;
     box-sizing: border-box;
-    background: linear-gradient(0deg, var(--color-accent), 40%, var(--color-bg), 100%);
     animation: gradient-disappear 1s forwards;
 }
 
