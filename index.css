@@ -137,7 +137,7 @@ section {
     align-items: center;
     gap: var(--gap-xxl);
     width: 100%;
-    min-height: max(600px, 60vh);
+    min-height: max(600px, 65vh);
 }
 
 footer {
@@ -153,39 +153,6 @@ footer {
 
 footer>*:nth-child(2) {
     width: 90%;
-}
-
-.bento {
-    display: grid;
-    gap: 1px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    background-color: var(--color-border);
-    grid-template-rows: 2;
-    grid-template-columns: repeat(2, 1fr);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    max-width: 80%;
-}
-
-.bento>* {
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    background-color: var(--color-bg);
-}
-
-.bento>*:nth-child(1) {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
-}
-
-.bento>*:nth-child(2) {
-    border-radius: 0px 0px 0px var(--border-radius);
-}
-
-.bento>*:nth-child(3) {
-    border-radius: 0px 0px var(--border-radius) 0px;
 }
 
 .download-resume {
@@ -266,21 +233,8 @@ footer>*:nth-child(2) {
     border-radius: var(--border-radius);
 }
 
-.divider {
-    width: 100%;
-    min-height: 40vh;
-}
-
-.monitor-and-keyboard>* {
-    width: min(512px, 65vw);
-}
-
-.monitor-and-keyboard>*:nth-child(1) {
-    transform: translate(min(-200px, -5vw));
-}
-
-.monitor-and-keyboard>*:nth-child(2) {
-    transform: translate(min(300px, 10vw));
+.gradient-reverse {
+    background: linear-gradient(#00000000 2.5%, 60%, rgb(88, 28, 131));
 }
 
 .root-container {
@@ -336,56 +290,76 @@ footer>*:nth-child(2) {
     bottom: 0%;
 }
 
-.skill-sectors {
+.intro {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-lg);
     position: relative;
-    width: 100%;
-    min-height: max(600px, 60vh);
-    max-width: 1700px;
+    align-content: center;
+    max-width: 55%;
+    padding: 4px;
 }
 
-.skill-sectors>* {
+.intro-greeting {
+    text-shadow: 2px 4px 3px var(--color-bg-hi);
+}
+
+.intro-text {
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--gap-lg);
+}
+
+.monitor {
     position: absolute;
-    left: 50%;
+    transform: translate(-50%, 50%);
+    left: 40%;
+    bottom: 70%;
+    width: 512px;
+    height: 512px;
+    opacity: .05;
 }
 
-.skill-sectors>*:nth-child(1) {
-    top: 5%;
-    left: 50%;
+.keyboard {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    bottom: 20%;
+    left: 60%;
+    width: 512px;
+    height: 512px;
+    opacity: .15;
 }
 
-.skill-sectors>*:nth-child(2) {
-    top: 35%;
-    left: 82.5%;
+.bento {
+    display: grid;
+    gap: 1px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-border);
+    grid-template-rows: 2;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    max-width: 60%;
 }
 
-.skill-sectors>*:nth-child(3) {
-    top: 35%;
-    left: 18.5%;
-}
-
-.skill-sectors>*:nth-child(4) {
-    bottom: 0%;
-    left: 50%;
-}
-
-.skill-sector {
+.bento>* {
     display: flex;
     flex-direction: column;
-    width: 360px;
-    gap: var(--gap-sm);
-    border-left: var(--border-weight) solid var(--color-border);
-    padding: var(--gap-md);
+    padding: 24px;
+    background-color: var(--color-bg);
 }
 
-.skill-sector-title {
-    display: flex;
-    gap: var(--gap-md);
+.bento>*:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
 }
 
-.experiences {
-    flex-wrap: wrap;
-    max-width: 90%;
-    gap: var(--gap-lg);
+.bento>*:nth-child(2) {
+    border-radius: 0px 0px 0px var(--border-radius);
+}
+
+.bento>*:nth-child(3) {
+    border-radius: 0px 0px var(--border-radius) 0px;
 }
 
 .no-link-styling {
@@ -396,24 +370,6 @@ footer>*:nth-child(2) {
 .no-link-styling>* {
     text-decoration: none;
     color: inherit;
-}
-
-.experience {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xl);
-    border: var(--border-weight) solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: var(--gap-xxl) var(--gap-xl) var(--gap-xl) var(--gap-xl);
-    max-width: 370px;
-    min-height: 640px;
-    box-sizing: border-box;
-    animation: gradient-disappear 1s forwards;
-    background-color: var(--color-bg-hi)
-}
-
-.experience-job-title {
-    color: var(--color-accent)
 }
 
 .animate-hover {
@@ -462,6 +418,10 @@ footer>*:nth-child(2) {
 }
 
 @media (width <=1200px) {
+    section {
+        gap: var(--gap-lg);
+    }
+
     footer {
         justify-content: center;
 
@@ -486,34 +446,64 @@ footer>*:nth-child(2) {
         width: 120px;
     }
 
-    .skill-sectors {
+    .intro {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: var(--gap-xxl);
+        position: relative;
+        align-items: normal;
+        max-width: 80%;
     }
 
-    .skill-sectors>* {
-        position: static;
-        left: auto;
-        transform: none;
-        width: 90%;
+    .intro-greeting {
+        display: none;
     }
 
-    .experiences {
-        gap: var(--gap-xxl);
+    .intro-text {
+        border-left: none;
+        padding-left: 0px;
     }
 
-    .experience {
-        min-height: auto;
-        max-width: none;
+    .monitor {
+        left: 40%;
+        bottom: 30%;
+        width: 128px;
+        height: 128px;
+        opacity: 1;
     }
 
-    .monitor-and-keyboard>*:nth-child(1) {
-        transform: translate(-60px);
+    .keyboard {
+        bottom: 10%;
+        left: 60%;
+        width: 128px;
+        height: 128px;
+        opacity: 1;
     }
 
-    .monitor-and-keyboard>*:nth-child(2) {
-        transform: translate(60px);
+    .bento {
+        display: grid;
+        grid-template-rows: 3;
+        grid-template-columns: 1fr;
+        max-width: 95%;
+    }
+
+    .bento>* {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        background-color: var(--color-bg);
+    }
+
+    .bento>*:nth-child(1) {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+    }
+
+    .bento>*:nth-child(2) {
+        border-radius: 0px;
+    }
+
+    .bento>*:nth-child(3) {
+        border-radius: 0px 0px var(--border-radius) var(--border-radius);
     }
 }
