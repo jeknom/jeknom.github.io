@@ -15,6 +15,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Caveat';
+    src: url('/fonts/Caveat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -40,9 +48,10 @@
     --color-bg: #1c3e8e;
     --color-bg-hi: #214bab;
 
-    --color-accent: #c9963a;
+    --color-accent: #45ba5c;
 
-    --color-typography: #D0D0D0;
+    --color-typography-title: #eeeeee;
+    --color-typography: #cdcdcd;
 
     --color-border: #3958a1;
 
@@ -56,12 +65,12 @@
 body {
     display: block;
 
-    color: var(--color-typography, #fff);
-    background-color: var(--color-bg, #000);
+    background-color: var(--color-bg, #ffffff);
 
     font-family: var(--font-body);
     font-weight: var(--font-weight);
     font-size: var(--font-size);
+    color: var(--color-typography, #fff);
 }
 
 h1,
@@ -72,6 +81,7 @@ h5,
 h6 {
     font-family: var(--font-title);
     font-weight: var(--font-weight);
+    color: var(--color-typography-title, #fff);
     margin: 0;
 }
 
@@ -101,22 +111,24 @@ h6 {
 
 p {
     margin: 0;
+    color: var(--color-typography, #fff);
 }
 
 nav {
     position: absolute;
     height: 80px;
     top: 0px;
-    right: 12px;
+    right: 24px;
 }
 
 header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: var(--gap-xl);
     width: 100%;
-    min-height: max(600px, 120vh);
+    min-height: max(600px, 100vh);
 }
 
 section {
@@ -143,6 +155,39 @@ footer>*:nth-child(2) {
     width: 90%;
 }
 
+.bento {
+    display: grid;
+    gap: 1px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-border);
+    grid-template-rows: 2;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    max-width: 80%;
+}
+
+.bento>* {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: var(--color-bg);
+}
+
+.bento>*:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+}
+
+.bento>*:nth-child(2) {
+    border-radius: 0px 0px 0px var(--border-radius);
+}
+
+.bento>*:nth-child(3) {
+    border-radius: 0px 0px var(--border-radius) 0px;
+}
+
 .download-resume {
     background-color: rgba(139, 131, 131, 0.208);
     color: var(--color-typography);
@@ -154,6 +199,23 @@ footer>*:nth-child(2) {
 
 .download-resume:hover {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: center;
+    background-color: var(--color-bg-hi);
+    color: var(--color-accent);
+    font-size: var(--font-size-caption);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    padding: 6px 8px;
+}
+
+.scribble {
+    font-family: Caveat;
 }
 
 .caption {
@@ -240,41 +302,38 @@ footer>*:nth-child(2) {
     opacity: 0;
 }
 
-/* This is the site title with my name on it */
-.site-header>*:nth-child(1) {
-    top: 40%;
+.site-header-hero {
+    position: absolute;
     left: 50%;
-
-    animation: appear 1s forwards;
-    animation-delay: 0s;
+    top: 40%;
 }
 
-.site-header>*:nth-child(2) {
+.site-header-rock-1 {
     top: 22.5%;
     left: 25%;
     height: clamp(200px, 20vw, 400px);
     width: clamp(200px, 20vw, 400px);
 }
 
-.site-header>*:nth-child(3) {
-    top: 30%;
+.site-header-rock-2 {
+    top: 17.5%;
     left: 77%;
     height: clamp(100px, 12.5vw, 200px);
     width: clamp(100px, 12.5vw, 200px);
 }
 
-.site-header>*:nth-child(4) {
-    bottom: 17%;
+.site-header-rock-3 {
+    bottom: 0%;
     right: 45%;
     height: clamp(100px, 17.5vw, 300px);
     width: clamp(100px, 17.5vw, 300px);
 }
 
-.site-header>*:nth-child(5) {
-    left: 45%;
-    bottom: 15%;
+.site-header-scroll-hint {
+    position: absolute;
     transform: translate(-50%, -50%);
-    rotate: 45deg;
+    left: 50%;
+    bottom: 0%;
 }
 
 .skill-sectors {
@@ -287,7 +346,6 @@ footer>*:nth-child(2) {
 .skill-sectors>* {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .skill-sectors>*:nth-child(1) {
