@@ -15,14 +15,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Caveat';
-    src: url('/fonts/Caveat-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -181,10 +173,6 @@ footer>*:nth-child(2) {
     padding: 6px 8px;
 }
 
-.scribble {
-    font-family: Caveat;
-}
-
 .caption {
     font-size: var(--font-size-caption);
 }
@@ -335,7 +323,7 @@ footer>*:nth-child(2) {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     background-color: var(--color-border);
-    grid-template-rows: 2;
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     max-width: 60%;
@@ -465,14 +453,14 @@ footer>*:nth-child(2) {
 
     .monitor {
         left: 40%;
-        bottom: 30%;
+        bottom: 25%;
         width: 128px;
         height: 128px;
         opacity: 1;
     }
 
     .keyboard {
-        bottom: 10%;
+        bottom: 5%;
         left: 60%;
         width: 128px;
         height: 128px;
@@ -481,7 +469,7 @@ footer>*:nth-child(2) {
 
     .bento {
         display: grid;
-        grid-template-rows: 3;
+        grid-template-rows: repeat(3, 1fr);
         grid-template-columns: 1fr;
         max-width: 95%;
     }
