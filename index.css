@@ -323,8 +323,8 @@ footer>*:nth-child(2) {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     background-color: var(--color-border);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(2, auto);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     max-width: 60%;
 }
@@ -469,8 +469,8 @@ footer>*:nth-child(2) {
 
     .bento {
         display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: auto;
         max-width: 95%;
     }
 
