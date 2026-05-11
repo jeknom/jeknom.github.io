@@ -284,7 +284,7 @@ footer>*:nth-child(2) {
     gap: var(--gap-lg);
     position: relative;
     align-content: center;
-    max-width: 55%;
+    max-width: 800px;
     padding: 4px;
 }
 
